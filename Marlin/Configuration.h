@@ -333,12 +333,12 @@
 // The minimal temperature defines the temperature below which the heater will not be enabled It is used
 // to check that the wiring to the thermistor is not broken.
 // Otherwise this would lead to the heater being powered on all the time.
-#define HEATER_0_MINTEMP 19
+#define HEATER_0_MINTEMP 25
 #define HEATER_1_MINTEMP 5
 #define HEATER_2_MINTEMP 5
 #define HEATER_3_MINTEMP 5
 #define HEATER_4_MINTEMP 5
-#define BED_MINTEMP 19
+#define BED_MINTEMP 25
 
 // When temperature exceeds max temp, your heater will be switched off.
 // This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
@@ -367,16 +367,16 @@
   //#define SLOW_PWM_HEATERS // PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay
   //#define PID_PARAMS_PER_HOTEND // Uses separate PID parameters for each extruder (useful for mismatched extruders)
                                   // Set/get with gcode: M301 E[extruder number, 0-2]
-  #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature
+  #define PID_FUNCTIONAL_RANGE 15 // If the temperature difference between the target temperature and the actual temperature
                                   // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   // ANET A8 
   // M106 S255 && M303 E0 S200 C8
-  #define DEFAULT_Kp 28.19
-  #define DEFAULT_Ki 2.63
-  #define DEFAULT_Kd 75.64
+  #define DEFAULT_Kp 22.11
+  #define DEFAULT_Ki 1.93
+  #define DEFAULT_Kd 63.40
 
 #endif // PIDTEMP
 
@@ -415,9 +415,9 @@
 
     // M303 E-1 C8 S50
     
-    #define  DEFAULT_bedKp 174.70
-    #define  DEFAULT_bedKi 20.31
-    #define  DEFAULT_bedKd 375.68
+    #define  DEFAULT_bedKp 253.97
+    #define  DEFAULT_bedKi 33.70
+    #define  DEFAULT_bedKd 478.51
 
 #endif // PIDTEMPBED
 
@@ -607,7 +607,7 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          700    // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_ACCELERATION          750    // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  2000    // E acceleration for retracts
 #define DEFAULT_TRAVEL_ACCELERATION   1500    // X, Y, Z acceleration for travel (non printing) moves
 
@@ -621,8 +621,8 @@
  */
 #define DEFAULT_XJERK                 8
 #define DEFAULT_YJERK                 8
-#define DEFAULT_ZJERK                 0.3
-#define DEFAULT_EJERK                 5.0
+#define DEFAULT_ZJERK                 0.5
+#define DEFAULT_EJERK                 10.0
 
 /**
  * S-Curve Acceleration
@@ -859,8 +859,8 @@
 #define Y_BED_SIZE 220
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -33
-#define Y_MIN_POS -9
+#define X_MIN_POS -32
+#define Y_MIN_POS -8
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS 223
@@ -1083,10 +1083,10 @@
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
-//#define LEVEL_BED_CORNERS
+#define LEVEL_BED_CORNERS
 
 #if ENABLED(LEVEL_BED_CORNERS)
-  #define LEVEL_CORNERS_INSET 30    // (mm) An inset for corner leveling
+  #define LEVEL_CORNERS_INSET 10    // (mm) An inset for corner leveling
   #define LEVEL_CENTER_TOO        // Move to the center after the last corner
 #endif
 
@@ -1231,12 +1231,12 @@
 // @section temperature
 
 // Preheat Constants
-#define PREHEAT_1_TEMP_HOTEND 180
-#define PREHEAT_1_TEMP_BED     70
+#define PREHEAT_1_TEMP_HOTEND 110
+#define PREHEAT_1_TEMP_BED     40
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
-#define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    110
+#define PREHEAT_2_TEMP_HOTEND 150
+#define PREHEAT_2_TEMP_BED    50
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
 /**
@@ -1254,7 +1254,7 @@
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z }
-  #define NOZZLE_PARK_POINT { (X_MAX_POS / 2), (-9), 10 }
+  #define NOZZLE_PARK_POINT { (X_MAX_POS), (-9), 10 }
   #define NOZZLE_PARK_XY_FEEDRATE 60   // X and Y axes feedrate in mm/s (also used for delta printers Z axis)
   #define NOZZLE_PARK_Z_FEEDRATE 5      // Z axis feedrate in mm/s (not used for delta printers)
 #endif
@@ -1428,7 +1428,7 @@
  * just remove some extraneous menu items to recover space.
  */
 //#define NO_LCD_MENUS
-//#define SLIM_LCD_MENUS
+#define SLIM_LCD_MENUS
 
 //
 // ENCODER SETTINGS
