@@ -116,11 +116,11 @@
   #define E0_CS_PIN        42
 #endif
 
-#define E1_STEP_PIN        36
-#define E1_DIR_PIN         34
-#define E1_ENABLE_PIN      30
-#ifndef E1_CS_PIN
-  #define E1_CS_PIN        44
+#define Z2_STEP_PIN        36
+#define Z2_DIR_PIN         34
+#define Z2_ENABLE_PIN      30
+#ifndef Z2_CS_PIN
+  #define Z2_CS_PIN        44
 #endif
 
 /**
@@ -368,6 +368,7 @@
       #define LCD_PINS_D5       40
       #define LCD_PINS_D6       42
       #define LCD_PINS_D7       65
+      #define ADC_KEYPAD_PIN    12
 
     #else
 
@@ -536,7 +537,7 @@
 
     #elif ENABLED(ZONESTAR_LCD)
 
-      #define ADC_KEYPAD_PIN    12
+      //#define ADC_KEYPAD_PIN    37
 
     #else
 
