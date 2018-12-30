@@ -620,8 +620,8 @@
  * When changing speed and direction, if the difference is less than the
  * value set here, it may happen instantaneously.
  */
-#define DEFAULT_XJERK                 8
-#define DEFAULT_YJERK                 7
+#define DEFAULT_XJERK                 10
+#define DEFAULT_YJERK                 8
 #define DEFAULT_ZJERK                 2
 #define DEFAULT_EJERK                 12.0
 
@@ -844,7 +844,7 @@
 
 //#define UNKNOWN_Z_NO_RAISE // Don't raise Z (lower the bed) if Z is "unknown." For beds that fall when Z is powered off.
 
-#define Z_HOMING_HEIGHT 2  // (in mm) Minimal z height before homing (G28) for Z clearance above the bed, clamps, ...
+#define Z_HOMING_HEIGHT 1  // (in mm) Minimal z height before homing (G28) for Z clearance above the bed, clamps, ...
                              // Be sure you have this distance over your Z_MAX_POS in case.
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
@@ -1126,8 +1126,8 @@
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY (50*60)
-#define HOMING_FEEDRATE_Z  (4*60)
+#define HOMING_FEEDRATE_XY (4000)
+#define HOMING_FEEDRATE_Z  (280)
 
 // @section calibrate
 
@@ -1781,7 +1781,7 @@
 // @section extras
 
 // Increase the FAN PWM frequency. Removes the PWM noise but increases heating in the FET/Arduino
-#define FAST_PWM_FAN
+//#define FAST_PWM_FAN
 
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
@@ -1843,14 +1843,14 @@
  * LED Type. Enable only one of the following two options.
  *
  */
-//#define RGB_LED
+#define RGB_LED
 //#define RGBW_LED
 
 #if ENABLED(RGB_LED) || ENABLED(RGBW_LED)
-  #define RGB_LED_R_PIN 11
-  #define RGB_LED_G_PIN 6
-  #define RGB_LED_B_PIN 5
-  #define RGB_LED_W_PIN 4
+  #define RGB_LED_R_PIN 5
+  #define RGB_LED_G_PIN 11
+  #define RGB_LED_B_PIN 6
+  #define RGB_LED_W_PIN -1
 #endif
 
 // Support for Adafruit Neopixel LED driver

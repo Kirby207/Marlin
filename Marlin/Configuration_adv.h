@@ -196,17 +196,17 @@
  * The fan will turn on automatically whenever any stepper is enabled
  * and turn off after a set period after all steppers are turned off.
  */
-//#define USE_CONTROLLER_FAN
+#define USE_CONTROLLER_FAN
 #if ENABLED(USE_CONTROLLER_FAN)
   #define CONTROLLER_FAN_PIN 7        // Set a custom pin for the controller fan
   #define CONTROLLERFAN_SECS 60          // Duration in seconds for the fan to run after all motors are disabled
-  #define CONTROLLERFAN_SPEED 128        // 255 == full speed
+  #define CONTROLLERFAN_SPEED 255        // 255 == full speed
 #endif
 
 // When first starting the main fan, run it at full speed for the
 // given number of milliseconds.  This gets the fan spinning reliably
 // before setting a PWM value. (Does not work with software PWM for fan on Sanguinololu)
-#define FAN_KICKSTART_TIME 250
+#define FAN_KICKSTART_TIME 1000
 
 /**
  * PWM Fan Scaling
@@ -380,7 +380,7 @@
 #define X_HOME_BUMP_MM 4
 #define Y_HOME_BUMP_MM 4
 #define Z_HOME_BUMP_MM 3
-#define HOMING_BUMP_DIVISOR { 3, 3, 4 }  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
+#define HOMING_BUMP_DIVISOR { 3, 3, 3 }  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 #define QUICK_HOME                     // If homing includes X and Y, do a diagonal move initially
 
 // When G28 is called, this option will make Y home before X
@@ -531,7 +531,7 @@
 #define LCD_TIMEOUT_TO_STATUS 60000
 
 // Add an 'M73' G-code to set the current percentage
-#define LCD_SET_PROGRESS_MANUALLY
+//#define LCD_SET_PROGRESS_MANUALLY
 
 #if ENABLED(SDSUPPORT) || ENABLED(LCD_SET_PROGRESS_MANUALLY)
   #define LCD_PROGRESS_BAR              // Show a progress bar on HD44780 LCDs for SD printing
@@ -548,16 +548,16 @@
  * LED Control Menu
  * Enable this feature to add LED Control to the LCD menu
  */
-//#define LED_CONTROL_MENU
+#define LED_CONTROL_MENU
 #if ENABLED(LED_CONTROL_MENU)
   #define LED_COLOR_PRESETS                 // Enable the Preset Color menu option
   #if ENABLED(LED_COLOR_PRESETS)
     #define LED_USER_PRESET_RED        255  // User defined RED value
-    #define LED_USER_PRESET_GREEN      128  // User defined GREEN value
-    #define LED_USER_PRESET_BLUE         0  // User defined BLUE value
-    #define LED_USER_PRESET_WHITE      255  // User defined WHITE value
+    #define LED_USER_PRESET_GREEN      51  // User defined GREEN value
+    #define LED_USER_PRESET_BLUE       153  // User defined BLUE value
+    #define LED_USER_PRESET_WHITE      0  // User defined WHITE value
     #define LED_USER_PRESET_BRIGHTNESS 255  // User defined intensity
-    //#define LED_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup
+    #define LED_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup
   #endif
 #endif // LED_CONTROL_MENU
 
@@ -691,7 +691,7 @@
 
   // Enable this option and reduce the value to optimize screen updates.
   // The normal delay is 10µs. Use the lowest value that still gives a reliable display.
-  #define DOGM_SPI_DELAY_US 5
+  #define DOGM_SPI_DELAY_US 4
 
   // Swap the CW/CCW indicators in the graphics overlay
   //#define OVERLAY_GFX_REVERSE
