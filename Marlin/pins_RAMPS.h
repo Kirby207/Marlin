@@ -76,13 +76,13 @@
 #define Y_MIN_PIN          14
 #define Y_MAX_PIN          15
 #define Z_MIN_PIN          18
-#define Z_MAX_PIN          19
+#define Z_MAX_PIN          -1 // 19
 
 //
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN  32
+  #define Z_MIN_PROBE_PIN  19
 #endif
 
 //
@@ -197,9 +197,9 @@
 
 // SPI for Max6675 or Max31855 Thermocouple
 #if DISABLED(SDSUPPORT)
-  #define MAX6675_SS       66   // Do not use pin 53 if there is even the remote possibility of using Display/SD card
+  #define MAX6675_SS       -1   // Do not use pin 53 if there is even the remote possibility of using Display/SD card
 #else
-  #define MAX6675_SS       66   // Do not use pin 49 as this is tied to the switch inside the SD card socket to detect if there is an SD card present
+  #define MAX6675_SS       -1   // Do not use pin 49 as this is tied to the switch inside the SD card socket to detect if there is an SD card present
 #endif
 
 //
@@ -274,16 +274,16 @@
 #define LED_PIN            13
 
 #ifndef FILWIDTH_PIN
-  #define FILWIDTH_PIN      5   // Analog Input on AUX2
+  #define FILWIDTH_PIN      -1   // Analog Input on AUX2
 #endif
 
 // define digital pin 4 for the filament runout sensor. Use the RAMPS 1.4 digital input 4 on the servos connector
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN    4
+  #define FIL_RUNOUT_PIN    -1
 #endif
 
 #ifndef PS_ON_PIN
-  #define PS_ON_PIN        12
+  #define PS_ON_PIN        -1
 #endif
 
 #if ENABLED(CASE_LIGHT_ENABLE) && !defined(CASE_LIGHT_PIN) && !defined(SPINDLE_LASER_ENABLE_PIN)
@@ -315,13 +315,13 @@
 // Průša i3 MK2 Multiplexer Support
 //
 #ifndef E_MUX0_PIN
-  #define E_MUX0_PIN 40   // Z_CS_PIN
+  #define E_MUX0_PIN -1   // Z_CS_PIN
 #endif
 #ifndef E_MUX1_PIN
-  #define E_MUX1_PIN 42   // E0_CS_PIN
+  #define E_MUX1_PIN -1   // E0_CS_PIN
 #endif
 #ifndef E_MUX2_PIN
-  #define E_MUX2_PIN 44   // E1_CS_PIN
+  #define E_MUX2_PIN -1   // E1_CS_PIN
 #endif
 
 //////////////////////////
